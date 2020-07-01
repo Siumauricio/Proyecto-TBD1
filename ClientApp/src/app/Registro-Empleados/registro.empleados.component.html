@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Side Navigation Bar</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="sidebar">
+      <h2 href="#" [routerLink]="['/DashboardAdmin']">Proyecto Gestor</h2>
+      <ul>
+        <li><a class="clientes" [routerLink]="['/RegistroClientes']">Crear Cliente</a></li>
+        <li><a class="clientes" [routerLink]="['/RegistroEmpleados']">Crear Empleado</a></li>
+        <li><a class="clientes" [routerLink]="['/RegistroAdmin']">Crear Admin</a></li>
+        <li><a class="clientes" [routerLink]="['/RegistroHabilidades']">Asignar Habilidades</a></li>
+      </ul>
+    </div>
+    <div class="main_content">
+      <div class="header">Registro de Habilidades.</div>
+      <div class="container">
+        <form [formGroup]="clientesForm">
+          <label>
+            <input type="text" placeholder="Username" formControlName="username">
+          </label>
+
+          <label>
+            <input type="text" placeholder="Password" formControlName="password">
+          </label>
+
+          <label>
+            <input type="text" placeholder="Name" formControlName="name">
+          </label>
+
+          <label>
+            <input type="number" placeholder="Phone Number" formControlName="phoneNumber">
+          </label>
+
+          <label>
+            <input type="text" placeholder="Address" formControlName="address">
+          </label>
+          <label>
+            <input type="number" placeholder="Rol" formControlName="rol">
+          </label>
+          <label>
+            <input type="number" placeholder="Salario" formControlName="salario">
+          </label>
+          <label>
+            <input type="date" placeholder="Fecha-Nacimiento" formControlName="fechan">
+          </label>
+
+          <label>
+            <input type="number" placeholder="Grupo-Trabajo" formControlName="grupo">
+          </label>
+
+          <label>
+            <input type="number" placeholder="Puesto De Trabajo" formControlName="puesto">
+          </label>
+          <br />
+          <button class="boton" type="submit" (click)="onSubmit()">Register</button>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

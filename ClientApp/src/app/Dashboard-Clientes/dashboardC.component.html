@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Side Navigation Bar</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+</head>
+<body>
+
+  <div class="wrapper">
+    <div class="sidebar">
+      <h2 href="#" [routerLink]="['/DashboardCClientes']">Proyecto Gestor</h2>
+      <ul>
+        <li><a href="#" [routerLink]="['/DashboardCClientes']">Perfil</a></li>
+        <li><a href="#" [routerLink]="['/RegistroProyectos']">Solicitar Proyecto</a></li>
+        <li><a href="#" [routerLink]="['/TablasSolicitudesProyectos']">Ver Solicitudes de proyecto</a></li>
+        <li><a href="#" [routerLink]="['/ProyectosAprobados']">Proyectos Aprobados</a></li>
+
+        <li><a href="#" [routerLink]="['/']">Salir</a></li>
+
+      </ul>
+    </div>
+    <div class="guardar">
+      <button *ngIf="enableEdit " (click)="enableEdit=false" class="btn page-secondary-action-btn" ng-click="cancel()">Cancel</button>
+      <button *ngIf="enableEdit" id="saveBtn" class="btn page-primary-action-btn" (click)="saveSegment()" type="submit">Save</button>
+      <button *ngIf="!enableEdit" class="guardar" class="btn page-secondary-action-btn" (click)="enableEditMethod($event, i)"> Modificar Informacion</button>
+    </div>
+    <div class="main_content">
+      <div class="header">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tabla de Equipos</div>
+      <div class="cualquier_nombre" style="font-size : 30px">BIENVENIDOS A SU PERFIL PERSONAL</div>
+      <br />
+      <br />
+      <td class="mover">  Nombre Completo: <input type="text" [(ngModel)]="nombre" [disabled]="!enableEdit"> </td>
+      <br />
+      <td class="mover">  Nombre de usuario: <input type="text" [(ngModel)]="username" [disabled]="!enableEdit"> </td>
+      <br />
+      <td class="mover"> ID Usuario: <input type="text" [(ngModel)]="idUsuario" [disabled]="true"> </td>
+      <br />
+      <td class="mover"> Telefono: <input type="text" [(ngModel)]="telefono" [disabled]="!enableEdit"> </td>
+      <br />
+      <td class="mover"> Direccion: <input type="text" [(ngModel)]="direccion" [disabled]="!enableEdit"> </td>
+      <br />
+      <td class="mover"> ID Rol: <input type="text" [(ngModel)]="rolesIdRol" [disabled]="true"> </td>
+
+
+
+
+
+
+
+
+
+      <!--input type="text" [(ngModel)]="username" [disabled]="!enableEdit">
+      <td>   <input type="text" [(ngModel)]="idUsuario" [disabled]="!enableEdit"> </td>
+      <td>   <input type="text" [(ngModel)]="direccion" [disabled]="!enableEdit"> </td>-->
+      <!--<h3 class="tab"  >ID Usuario: {{idUsuario}}</h3>
+      <h3 class="tab">Nombre Completo: {{nombre}}</h3>
+      <h3 class="tab">Username: {{username}}</h3>
+      <h3 class="tab">Telefono: {{telefono}}</h3>
+      <h3 class="tab">Direccion: {{direccion}}</h3>
+
+      <h3 class="tab">Rol: {{rolesIdRol}}</h3>-->
+      <!--<div>Lorem ipsum dolor sit, amet consectetur adipisicing elit. A sed nobis ut exercitationem atque accusamus sit natus officiis totam blanditiis at eum nemo, nulla et quae eius culpa eveniet voluptatibus repellat illum tenetur, facilis porro. Quae fuga odio perferendis itaque alias sint, beatae non maiores magnam ad, veniam tenetur atque ea exercitationem earum eveniet totam ipsam magni tempora aliquid ullam possimus? Tempora nobis facere porro, praesentium magnam provident accusamus temporibus! Repellendus harum veritatis itaque molestias repudiandae ea corporis maiores non obcaecati libero, unde ipsum consequuntur aut consectetur culpa magni omnis vero odio suscipit vitae dolor quod dignissimos perferendis eos? Consequuntur!</div>
+      <div>Lorem ipsum dolor sit, amet consectetur adipisicing elit. A sed nobis ut exercitationem atque accusamus sit natus officiis totam blanditiis at eum nemo, nulla et quae eius culpa eveniet voluptatibus repellat illum tenetur, facilis porro. Quae fuga odio perferendis itaque alias sint, beatae non maiores magnam ad, veniam tenetur atque ea exercitationem earum eveniet totam ipsam magni tempora aliquid ullam possimus? Tempora nobis facere porro, praesentium magnam provident accusamus temporibus! Repellendus harum veritatis itaque molestias repudiandae ea corporis maiores non obcaecati libero, unde ipsum consequuntur aut consectetur culpa magni omnis vero odio suscipit vitae dolor quod dignissimos perferendis eos? Consequuntur!</div>
+      <div>Lorem ipsum dolor sit, amet consectetur adipisicing elit. A sed nobis ut exercitationem atque accusamus sit natus officiis totam blanditiis at eum nemo, nulla et quae eius culpa eveniet voluptatibus repellat illum tenetur, facilis porro. Quae fuga odio perferendis itaque alias sint, beatae non maiores magnam ad, veniam tenetur atque ea exercitationem earum eveniet totam ipsam magni tempora aliquid ullam possimus? Tempora nobis facere porro, praesentium magnam provident accusamus temporibus! Repellendus harum veritatis itaque molestias repudiandae ea corporis maiores non obcaecati libero, unde ipsum consequuntur aut consectetur culpa magni omnis vero odio suscipit vitae dolor quod dignissimos perferendis eos? Consequuntur!</div>-->
+    </div>
+  </div>
+</body>
+</html>

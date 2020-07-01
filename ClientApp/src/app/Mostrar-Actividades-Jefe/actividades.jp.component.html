@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Side Navigation Bar</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+</head>
+<body>
+
+  <div class="wrapper">
+    <div class="sidebar">
+      <h2 href="#" [routerLink]="['/DashboardJP']">Proyecto Gestor</h2>
+      <ul>
+        <li><a href="#" [routerLink]="['/DashboardJP']">Perfil</a></li>
+        <li><a href="#" [routerLink]="['/MostrarIntegrantes']">Ver Grupo</a></li>
+        <li><a href="#" [routerLink]="['/MostrarIntegrantes']">Ver Actividades</a></li>
+        <li><a href="#" [routerLink]="['/']">Salir</a></li>
+
+      </ul>
+
+    </div>
+    <div class="main_content">
+
+      <div class="header">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tabla de Empleados</div>
+      <button *ngIf="enableEdit " (click)="enableEdit=false" class="btn page-secondary-action-btn" ng-click="cancel()">Cancel</button>
+      <button *ngIf="enableEdit" id="saveBtn" class="btn page-primary-action-btn" (click)="saveSegment()" type="submit">Save</button>
+      <button *ngIf="!enableEdit && !enableShowD" class="btn page-secondary-action-btn" (click)="enableEditMethod($event, i)"> Modificar Informacion</button>
+
+      <div *ngIf="enableDelete && !enableEdit" class="btn page-secondary-action-btn"> Ingrese ID</div>
+      <input *ngIf="enableDelete && !enableEdit" type="text" />
+      <button *ngIf="enableDelete && !enableEdit" (click)="eliminar()" class="btn page-secondary-action-btn" ng-click="cancel()">Eliminar</button>
+      <button *ngIf="enableDelete && !enableEdit" (click)="enableAll()" class="btn page-secondary-action-btn" ng-click="cancel()">Cancel</button>
+      <button *ngIf="!enableDelete" class="btn page-secondary-action-btn" (click)="enableDeleteMethod()" input="text">
+        Eliminar Informacion
+      </button>
+
+      <table class='table' *ngIf="lstUsuarios ">
+        <thead>
+          <tr>
+            <th>ID Actividad</th>
+            <th>ID Empleado</th>
+            <th>Fecha Entrega</th>
+            <th>Detalles</th>
+            <th>Tiempo estimado</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let emp of lstUsuarios" >
+            <td>   {{emp.id_actividad}} </td>
+            <td>   {{emp.Empleado_id_empleado}} </td>
+            <td>   {{emp.fecha_entrega}} </td>
+            <td>   {{emp.Detalles}} </td>
+            <td>   {{emp.tiempo_estimado}} </td>
+            <td>   {{emp.estado_solicitud}} </td>
+            <td><button class="btn btn-primary"  (click)="aprobar(emp.id_actividad)" type="submit" id="ed1" title="Editar" style="width: 100px;">Marcar Como Realizada</button>
+            <td><button class="btn btn-danger"  (click)="denegar(emp.id_actividad)" type="submit" id="ed1" title="Editar" style="width: 100px;">Marcar Como Denegada</button>
+          </tr>
+          <!--<butto (click)="enableEdit=true" *ngIf="!enableEdit">Edit</button>
+          <button (click)="enableEdit=false" *ngIf="enableEdit">Cancelar</button>
+          <button (click)="deleteEmployee(i)">Delete</button>-->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>
+
